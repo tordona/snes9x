@@ -1,61 +1,25 @@
-# Snes9x
+# Unofficial Snes9x for Windows ARM64
 *Snes9x - Portable Super Nintendo Entertainment System (TM) emulator*
 
-This is the official source code repository for the Snes9x project.
+This a project for unofficial builds of the Snes9x project, supporting Windows ARM64
 
-Please check the [Wiki](https://github.com/snes9xgit/snes9x/wiki) for additional information.
+## Changes
+* ARM64 target platform support
+* Switch to using latest DirectX SDK
+* Remove DirectDraw support from compilation
 
-## Nightly builds
+## Known Issues
+* Moving away from XAudio2 2.7 drops support for `IXAudio2::GetDeviceCount()` or `IXAudio2::GetDeviceDetails()`. Need to adjust enumerating audio devices. Workaround is to use WaveOut sound driver in settings.
 
-Download nightly builds from continuous integration:
+## Test Devices
+* Samsung Galaxy Go (Snapdragon 7c Gen 2)
+* Dell Inspiron 3420 (Snapdragon 8cx Gen 2)
+* Lenovo x13s (Snapdragon 8cx Gen 3)
 
-### snes9x
+## Screenshots
+![snes9x-sound-settings-arm64](https://github.com/tordona/snes9x/assets/1671976/1b410aa3-becc-4622-93cf-7d7162a29bf3)
 
-| OS            | status                                           |
-|---------------|--------------------------------------------------|
-| Windows       | [![Status][s9x-win-all]][appveyor]               |
-| Linux (GTK)   | [![Status][snes9x_linux-gtk-amd64]][cirrus-ci]   |
-| Linux (X11)   | [![Status][snes9x_linux-x11-amd64]][cirrus-ci]   |
-| FreeBSD (X11) | [![Status][snes9x_freebsd-x11-amd64]][cirrus-ci] |
-| macOS         | [![Status][snes9x_macOS-amd64]][cirrus-ci]       |
+![snes9x-super-offroad-arm64](https://github.com/tordona/snes9x/assets/1671976/a46ae186-8c32-4c7d-afcd-6a5f7cd80bc5)
 
-[appveyor]: https://ci.appveyor.com/project/snes9x/snes9x
-[cirrus-ci]: http://cirrus-ci.com/github/snes9xgit/snes9x
-
-[s9x-win-all]: https://ci.appveyor.com/api/projects/status/github/snes9xgit/snes9x?branch=master&svg=true
-[snes9x_linux-gtk-amd64]: https://api.cirrus-ci.com/github/snes9xgit/snes9x.svg?task=snes9x_linux-gtk-amd64
-[snes9x_linux-x11-amd64]: https://api.cirrus-ci.com/github/snes9xgit/snes9x.svg?task=snes9x_linux-x11-amd64
-[snes9x_freebsd-x11-amd64]: https://api.cirrus-ci.com/github/snes9xgit/snes9x.svg?task=snes9x_freebsd-x11-amd64
-[snes9x_macOS-amd64]: https://api.cirrus-ci.com/github/snes9xgit/snes9x.svg?task=snes9x_macOS-amd64
-
-### libretro core
-
-| OS                  | status                                                  |
-|---------------------|---------------------------------------------------------|
-| Linux/amd64         | [![Status][libretro_linux-amd64]][cirrus-ci]            |
-| Linux/i386          | [![Status][libretro_linux-i386]][cirrus-ci]             |
-| Linux/armhf         | [![Status][libretro_linux-armhf]][cirrus-ci]            |
-| Linux/armv7-neon-hf | [![Status][libretro_linux-armv7-neon-hf]][cirrus-ci]    |
-| Linux/arm64         | [![Status][libretro_linux-arm64]][cirrus-ci]            |
-| Android/arm         | [![Status][libretro_android-arm]][cirrus-ci]            |
-| Android/arm64       | [![Status][libretro_android-arm64]][cirrus-ci]          |
-| Emscripten          | [![Status][libretro_emscripten]][cirrus-ci]             |
-| macOS/amd64         | [![Status][libretro_macOS-amd64]][cirrus-ci]            |
-| Nintendo Wii        | [![Status][libretro_nintendo-wii]][cirrus-ci]           |
-| Nintendo Switch     | [![Status][libretro_nintendo-switch-libnx]][cirrus-ci]  |
-| Nintendo GameCube   | [![Status][libretro_nintendo-ngc]][cirrus-ci]           |
-| PSP                 | [![Status][libretro_playstation-psp]][cirrus-ci]        |
-
-[libretro_linux-amd64]: https://api.cirrus-ci.com/github/snes9xgit/snes9x.svg?task=libretro_linux-amd64
-[libretro_linux-i386]: https://api.cirrus-ci.com/github/snes9xgit/snes9x.svg?task=libretro_linux-i386
-[libretro_linux-armhf]: https://api.cirrus-ci.com/github/snes9xgit/snes9x.svg?task=libretro_linux-armhf
-[libretro_linux-armv7-neon-hf]: https://api.cirrus-ci.com/github/snes9xgit/snes9x.svg?task=libretro_linux-armv7-neon-hf
-[libretro_linux-arm64]: https://api.cirrus-ci.com/github/snes9xgit/snes9x.svg?task=libretro_linux-arm64
-[libretro_android-arm]: https://api.cirrus-ci.com/github/snes9xgit/snes9x.svg?task=libretro_android-arm
-[libretro_android-arm64]: https://api.cirrus-ci.com/github/snes9xgit/snes9x.svg?task=libretro_android-arm64
-[libretro_emscripten]: https://api.cirrus-ci.com/github/snes9xgit/snes9x.svg?task=libretro_emscripten
-[libretro_macOS-amd64]: https://api.cirrus-ci.com/github/snes9xgit/snes9x.svg?task=libretro_macOS-amd64
-[libretro_nintendo-wii]: https://api.cirrus-ci.com/github/snes9xgit/snes9x.svg?task=libretro_nintendo-wii
-[libretro_nintendo-switch-libnx]: https://api.cirrus-ci.com/github/snes9xgit/snes9x.svg?task=libretro_nintendo-switch-libnx
-[libretro_nintendo-ngc]: https://api.cirrus-ci.com/github/snes9xgit/snes9x.svg?task=libretro_nintendo-ngc
-[libretro_playstation-psp]: https://api.cirrus-ci.com/github/snes9xgit/snes9x.svg?task=libretro_playstation-psp
+### References
+https://walbourn.github.io/xaudio2-and-windows-8/
